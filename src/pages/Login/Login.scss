@@ -1,0 +1,85 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.login{
+  width: 120rem;
+  height: 67.5rem;
+  background: #FAFAFA;
+}
+
+.inputs{
+  margin: 3.95rem 44.5rem 2.13rem 44.5rem;
+}
+
+.logo{
+  margin: 16.31rem 51.65rem 3.95rem 51.69rem;
+  width: 16.66494rem;
+  height: 6.36431rem;
+  flex-shrink: 0;
+}
+
+.login__form{
+  width: 30.9375rem;
+  height: 4.375rem;
+  flex-shrink: 0;
+  border-radius: 0.9375rem;
+  border: 1px solid #DBDBDB;
+  background: #FFF;
+  font-size: 1.25rem;
+  text-indent: 2rem;
+
+}
+
+.btn{
+  margin-top: 2.23rem;
+  width: 30.9375rem;
+  height: 4.75rem;
+  flex-shrink: 0;
+  border-radius: 0.9375rem;
+  background: #3AB062;
+  border-style: none;
+}
+
+.sns{
+  color: #A7A7A7;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125rem; /* 90% */
+}
+
+.kakao{
+  width: 3.875rem;
+  height: 3.875rem;
+  flex-shrink: 0;
+  margin-top: 2.12rem;
+  margin-left: 58.06rem;
+  margin-bottom: 14.81rem;
+}
+
+.btntxt{
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.125rem; /* 72% */
+}
+
+input::placeholder{
+  color: #DBDBDB;
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125rem; /* 90% */
+  text-indent: 2rem;
+}

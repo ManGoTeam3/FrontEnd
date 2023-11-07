@@ -1,0 +1,47 @@
+.NavContainer{
+    height: 60px;
+    // width: 1960px;
+    min-width: 1440px;
+    max-width: 1960px;
+    padding: 30px 100px;
+    margin: 0 auto;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    ul{
+        list-style: none;
+        display: flex;
+        padding-left: 0;
+        // gap: 20px;
+
+        li{
+            padding: 15px 20px;
+            font-size: 20px;
+            white-space: nowrap;
+            font-weight: bold;
+            color: 000;
+            cursor: pointer;
+        }
+    }
+}
+
+.navLine{
+    width: 1px;
+    height: 30px;
+    background-color: #dbdbdb;
+    margin-top: 15px;
+}
+
+.reviewBtn{
+    background-color: #3AB062;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 20px;
+    margin-left: 20px;
+}

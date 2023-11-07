@@ -1,0 +1,45 @@
+@mixin flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.footerWrapper{
+    background-color: #505050;
+    min-width: 1643px;
+    height: 372px;
+}
+
+.footerContainer{
+    min-width: 1440px;
+    max-width: 1960px;
+    margin: 0 auto;
+}
+
+.footerBox{
+    @include flex-row;
+    justify-content: space-between;
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
+
+    img{
+        margin-top: 50px;
+    }
+}
+
+.footerLine{
+    background-color: #cbcbcb;
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.underTxt{
+    display: flex;
+    width: 90%;
+    font-size: 20px;
+    color: #fff;
+    justify-content: right;
+    line-height: 71px;
+    margin: 0 auto;
+}

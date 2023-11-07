@@ -1,0 +1,133 @@
+@mixin flex-row{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.mainWrapper{
+  width: 100%;
+  padding-top: 120px;
+}
+
+.filterWrapper{
+  width: 1920px;
+  margin: 0 auto;
+}
+
+.adWrapper{
+  @include flex-row;
+  width: 1467px;
+  justify-content: space-between;
+  margin: 50px auto;
+
+  p{
+      font-size: 40px;
+      font-weight: bold;
+      color: #000;
+  }
+}
+
+.rightTitle{
+  margin-left: 150px;
+}
+
+.recWrapper{
+  width: 1467px;
+  margin: 0 auto;
+
+}
+
+.recTitle{
+  font: {
+      size: 35px;
+      weight: bold;
+  }
+}
+
+.recContainer{
+  @include flex-row;
+  gap: 150px;
+  margin: 50px 0 100px 0;
+}
+
+.recBox{
+  width: 400px;
+}
+
+.recContentBox{
+  @include flex-row;
+  justify-content: space-between;
+}
+
+.recContent{
+  color: #5f5f5f;
+  margin-top: 20px;
+  font: {
+      size: 20px;
+      weight: 500;
+  }
+
+  .item{
+      font-size: 27.5px;
+      color: #000;
+      font-weight: bold;
+  }
+  
+  div{
+      margin: 10px 0;
+  }
+}
+
+.recScore{
+  color: #3DAB60;
+  font: {
+      size: 45px;
+      weight: 700;
+  }
+  line-height: 150px;
+}
+
+.bannerBox{
+  min-width: 1440px;
+  max-width: 1960px;
+  height: 588px;
+  margin: 0 auto;
+  background-color: #FFFEE8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #000;
+  font: {
+      size: 30px;
+      weight: 500;
+  }
+
+  p{
+      font: {
+          size: 45px;
+          weight: bold;
+      }
+  }
+
+  div{
+      white-space: nowrap;
+  }
+}
+
+.adBox{
+  @include flex-row;
+  justify-content: space-between;
+  margin: 100px auto;
+  font-size: 30px;
+  color: #000;
+  width: 1467px;
+}
+
+.title{
+  font-size: 45px;
+  font-weight: 700;
+  margin: 100px 0 30px 0;
+}
