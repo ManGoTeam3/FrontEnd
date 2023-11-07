@@ -39,7 +39,7 @@ jobs:
 
       #ESLint 경고 무시
       - name: Build
-        run: npm run build -- --no-verify
+        run: npm run build --no-verify
 
   deploy:
     # Add 'id-token' with the intended permissions for workload identity federation
