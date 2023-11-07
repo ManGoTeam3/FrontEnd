@@ -61,8 +61,15 @@ jobs:
           #workload_identity_provider: "${{ secrets.WIF_PROVIDER }}" # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
           #service_account: "${{ secrets.WIF_SERVICE_ACCOUNT }}" # e.g. - my-service-account@my-project.iam.gserviceaccount.com
           credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
+
       - name: Set gcloud project
         run: gcloud config set project ${{ env.PROJECT_ID }}
+
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v1"
+        with:
+          project_id: "poetic-inkwell-401203"
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Docker Auth
         id: docker-auth
