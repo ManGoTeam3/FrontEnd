@@ -50,8 +50,10 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GIT_TOKEN }}
-            if [ "$(docker ps -aq)" ]; then
-            docker rm -f $(docker ps -aq)
+            if [ "$(docker ps -aq -f name=durian-front)" ]; then
+              docker stop durian-front
+              docker rm -f durian-front
+
             fi
             docker pull ghcr.io/mangoteam3/frontend/durian-front:${{ github.sha }}
             docker run -d -p 3000:3000 --name durian ghcr.io/mangoteam3/frontend/durian-front:${{ github.sha }}
