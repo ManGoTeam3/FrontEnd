@@ -1,0 +1,58 @@
+# 작업명
+name: CD GCP
+
+# 실행해야 할 브랜치, push가 발생한 경우로만 한정하였다.
+on:
+  push:
+    branches:
+      - "develop"
+      - "main"
+  pull_request:
+    branches:
+      - "develop"
+      - "main"
+
+jobs:
+  CD:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.GCP_DEV_SERVER_IP }}
+          username: ${{ secrets.GCP_DEV_USERNAME }}
+          password: ${{ secrets.GCP_DEV_USERNAME }}
+          port: ${{ secrets.PORT }}
+          timeout: 40s # 30초 기본
+          script: whoami
+
+      # Docker 빌드 생성 및 푸시
+      - name: dev Docker build & push
+        if: contains(github.ref, 'main') || contains(github.ref, 'develop')
+        run: |
+          docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.SONG_TOKEN }}
+          docker build -f Dockerfile -t ghcr.io/mangoteam3/frontend/durian-front:${{ github.sha }} .
+          docker push ghcr.io/mangoteam3/frontend/durian-front:${{ github.sha }}
+          echo "완료"
+      # 개발서버 SSH접속 및 배포
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        id: deploy
+        if: contains(github.ref, 'main') || contains(github.ref, 'develop')
+        with:
+          host: ${{ secrets.GCP_DEV_SERVER_IP }}
+          username: ${{ secrets.DB_USERNAME }}
+          password: ${{ secrets.DB_PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GIT_TOKEN }}
+            if [ "$(docker ps -aq)" ]; then
+            docker rm -f $(docker ps -aq)
+            fi
+            docker pull ghcr.io/mangoteam3/frontend/durian-front:${{ github.sha }}
+            docker run -d -p 3000:3000 --name durian ghcr.io/mangoteam3/frontend/durian-front:${{ github.sha }}
+            docker image prune -f
