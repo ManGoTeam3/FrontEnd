@@ -1,0 +1,41 @@
+.searchContainer{
+    margin: 30px auto 250px auto;
+    width: 1440px;
+}
+
+.searchList{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #000;
+    gap: calc((1440px - 1222px) / 2);
+}
+
+.searchCategory{
+    color: #5f5f5f;
+    font-size: 35px;
+    padding: 54px 110px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &.selected{
+        color: #3DAB60;
+        border-bottom: 7px solid #3DAB60;
+    }
+}
+
+.searchContent{
+    margin: 0 auto;
+    width: 1440px;
+
+    .searchTitle{
+        color: #242424;
+        font-size: 35px;
+        margin: 25px 30px;
+    }
+
+    .searchLine{
+        width: 1440px;
+        height: 1px;
+        background-color: #5f5f5f;
+    }
+}

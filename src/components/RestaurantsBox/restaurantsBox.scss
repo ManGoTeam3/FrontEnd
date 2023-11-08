@@ -1,0 +1,50 @@
+
+.restaurantBox{
+    width: 369px;
+    height: 364px;
+}
+
+.restaurantImg{
+    background-color: #d9d9d9;
+    height: 211px;
+    width: 369px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.restaurantContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0;
+    
+    color: #5f5f5f;
+    font-size: 25px;
+
+    .restaurantTitle{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    p{
+        font-size: 23px;
+        white-space: nowrap;
+    }
+    .score{
+        font-size: 45px;
+        color: #3dab50;
+        font-weight: bold;
+    }
+
+    .restaurantLoc{
+        // margin: 5px 0;
+        line-height: 60px;
+    }
+
+    .restaurantName{
+        font-size: 35px;
+        color: #000;
+        font-weight: bold;
+    }
+}

@@ -19,6 +19,14 @@ export default function Nav() {
 
     return (
         <div className="NavContainer">
+<<<<<<< HEAD
+            <Link to="/"><img src={logo} width="130px" height="50px"/></Link>
+            <ul>
+                <li><Link to="/login" className="linkLogin">로그인</Link></li>
+                <div className="navLine"></div>
+                <li>회원가입</li>
+                <li className="reviewBtn">리뷰 작성하기</li>
+=======
             <img src={logo} width="130px" height="50px" alt={logo}/>
             <ul>
                 {!accessToken ? (
@@ -34,6 +42,7 @@ export default function Nav() {
                         <li className="reviewBtn">리뷰 작성하기</li>
                     </>
                 )}
+>>>>>>> 65ccb91c5682bce98818ec4e3dbc41e25bd3b500
             </ul>
         </div>
     );

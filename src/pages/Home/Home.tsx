@@ -6,26 +6,27 @@ import Footer from "../../components/Footer/footer";
 
 import rec from "../../assets/imgs/rec1.png";
 import heart from "../../assets/imgs/heart.png";
-import mango from "../../assets/imgs/mango.webp";
+import chatImg from "../../assets/imgs/chatImg.png";
 import hands from "../../assets/imgs/hands.png";
+import location from "../../assets/icons/location.png";
 
 const Home = () => {
     return (
         <section className="mainWrapper">
           <Nav />
           <div className="filterWrapper">
-            <Filter />
+            <Filter size="large"/>
             <div className="adWrapper">
               <div className="adTitleWrapper">
                 <p>빠르게 <span style={{ color: "#3AB062" }}>검색</span>하고</p>
                 <p className="rightTitle">믿고 보는 <span style={{ color: "#3AB062" }}>후기</span></p>
               </div>
               <div className="adImgWrapper">
-                <img src={mango}  alt={mango}/>
+                <img src={chatImg} />
               </div>
             </div>
             <div className="recWrapper">
-              <div className="recTitle"><span style={{ color: "#3AB062" }}>부천시</span> 맛집 추천</div>
+              <div className="recTitle"><img src={location}/><span style={{ color: "#3AB062" }}>부천시</span> 맛집 추천</div>
               <div className="recContainer">
                 {/* 컴포넌트화 필요 */}
                 <div className="recBox">
