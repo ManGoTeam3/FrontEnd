@@ -7,7 +7,7 @@ const Footer : React.FC = () => {
         <div className="footerWrapper">
             <div className="footerContainer">
                 <div className="footerBox">
-                    <img src={whiteLogo} width="213px" height="81px"/>
+                    <img src={whiteLogo} width="213px" height="81px" alt={whiteLogo}/>
                     <div></div>
                 </div>
                 <div className="footerLine"></div>

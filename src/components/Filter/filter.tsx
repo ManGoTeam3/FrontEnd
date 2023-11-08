@@ -6,7 +6,7 @@ const Filter : React.FC = () => {
     return(
         <div className="filterWrapper">
             <div className="filterInputWrapper">
-                <img src={search} width="50px" height="50px" style={{marginTop: "23px"}}/>
+                <img src={search} width="50px" height="50px" style={{marginTop: "23px"}} alt={search}/>
                 <input type="text" placeholder="맛집 검색"/>
             </div>
         </div>
