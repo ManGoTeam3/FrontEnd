@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 // @ts-ignore
 import axios from 'axios';
 import {useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 
 const Login = () => {
     const REST_API_KEY = '1faaacda5628317938fb787d27311f89';
-    const REDIRECT_URI = 'http://3.217.20.163:8080/auth/kakao/callback';
+    const REDIRECT_URI = 'http://localhost:3000/auth/kakao/callback';
     const dispatch = useDispatch();
     const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     const loginHandler = () => {

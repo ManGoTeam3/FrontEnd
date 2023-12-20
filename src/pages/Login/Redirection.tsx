@@ -28,7 +28,11 @@ const Redirection = () => {
         }
     }, []);
 
-    return <div>로그인 중입니다.</div>;
+    const nicknames = localStorage.getItem('nickname');
+
+    return <>
+        <div>{nicknames}님 반갑습니다 로그인 되셨습니다</div>
+    </>
 };
 
 export default Redirection;
