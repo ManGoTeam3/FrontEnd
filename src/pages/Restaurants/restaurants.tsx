@@ -1,3 +1,4 @@
+// @ts-ignore
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

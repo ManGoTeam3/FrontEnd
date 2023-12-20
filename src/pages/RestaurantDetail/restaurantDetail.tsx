@@ -1,7 +1,8 @@
+// @ts-ignore
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./restaurantDetail.scss";
-
+import { useNavigate } from 'react-router-dom';
 import Map from "../../components/Map/map";
 import Nav from "../../components/Nav/nav";
 import ReviewBox from "../../components/ReviewBox/reviewBox";
@@ -9,6 +10,7 @@ import ReviewBox from "../../components/ReviewBox/reviewBox";
 import sad from "../../assets/icons/sad.png";
 import smile from "../../assets/icons/smile.png";
 import soso from "../../assets/icons/soso.png";
+
 
 interface RestaurantDetailProps {
     addressName: string;
@@ -46,22 +48,27 @@ const RestaurantDetail = () => {
     const fetchList = () => {
         // 식당 상세 조회
         axios.get(`http://3.217.20.163:8080/api/restaurants/detail?restaurantId=${id}`)
-            .then(response => {
+            .then((response: any) => {
                 console.log(response);
                 setRestaurantDetail(response.data);
     
                 // 리뷰 전체 조회
                 return axios.get(`http://3.217.20.163:8080/api/restaurants/review/1`);
             })
-            .then(response2 => {
+            .then((response2: any) => {
                 console.log(response2);
                 setReviewList(response2); // Assuming response2 is an object with a 'data' property
             })
-            .catch(error => {
+            .catch((error: any) => {
                 console.error(error);
             });
     };
-    
+
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/Rating', { state: { id: id } });
+    }
     
       useEffect(() => {
         fetchList();
@@ -93,7 +100,9 @@ const RestaurantDetail = () => {
                         <div>
                             <div className="reviewBoxTitle">
                                 <div>리뷰 <span style={{ 'color': "#3dab60", marginLeft: '8px'}}>{reviewList?.data?.length === undefined ? 0 : reviewList?.data?.length}</span></div>
-                                <div className="reviewWriteBtn"><span>리뷰 작성하기</span></div>
+                                <div className="reviewWriteBtn" onClick={handleButtonClick}>
+
+                                    <span>리뷰 작성하기</span></div>
                             </div>
                             <div className="reviewLine"></div>
                             <div>

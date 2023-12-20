@@ -6,10 +6,17 @@ const Redirection = () => {
     const location = useLocation();
 
     useEffect(() => {
+        // Log the entire query string to the console
+        console.log(`Query string: ${location.search}`);
+
         // Parse the URL parameters
         const params = new URLSearchParams(location.search);
         const accessToken = params.get('accessToken');
         const nickname = params.get('nickname');
+
+        // Log the access token and nickname to the console
+        console.log(`Access Token: ${accessToken}`);
+        console.log(`Nickname: ${nickname}`);
 
         // Store the access token and nickname in the local storage
         if (accessToken && nickname) {

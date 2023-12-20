@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// @ts-ignore
 import axios from 'axios';
 import './Signup.scss'
 import {Link} from "react-router-dom";

@@ -6,6 +6,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 const MapContainer = ({ x, y }:{x : Number | undefined, y: Number | undefined}) => {
     const addMarker = () => {
         if (x === undefined || y === undefined) {
@@ -43,4 +44,5 @@ const MapContainer = ({ x, y }:{x : Number | undefined, y: Number | undefined}) 
     );
 }
 
-export default MapContainer; 
+// @ts-ignore
+export default MapContainer;

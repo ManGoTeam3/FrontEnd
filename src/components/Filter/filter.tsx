@@ -9,13 +9,13 @@ interface FilterProps {
 }
 
 function Filter ( {size}: FilterProps ) {
-    const searchRef = useRef<HTMLInputElement>(null);
+    const searchRefs = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
     const [findWord, setFindWord] = useState("");
 
     useEffect(() => {
-        if(searchRef.current !== null){
-            searchRef.current.focus();
+        if(searchRefs.current !== null){
+            searchRefs.current.focus();
         }
     }, []);
 
@@ -34,7 +34,7 @@ function Filter ( {size}: FilterProps ) {
                     type="text" 
                     placeholder="맛집 검색"
                     onClick={() => navigate("/search")}
-                    // ref={searchRef}
+                    // ref={searchRefs}
                     />
                     ) : (
                         size === "medium" ? (
@@ -44,14 +44,14 @@ function Filter ( {size}: FilterProps ) {
                             onKeyDown={searchData}
                             value={findWord}
                             onChange={(e) => setFindWord(e.target.value)}
-                            ref={searchRef}
+                            ref={searchRefs}
                         />
                     ) : (
                         <input 
                             type="text" 
                             placeholder="맛집 검색"
                             onClick={() => navigate("/search")}
-                            // ref={searchRef}
+                            // ref={searchRefs}
                         />
                     )
                 )}
@@ -60,4 +60,5 @@ function Filter ( {size}: FilterProps ) {
     );
 }
 
+// @ts-ignore
 export default Filter;
