@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 
 const Login = () => {
     const REST_API_KEY = '1faaacda5628317938fb787d27311f89';
-    const REDIRECT_URI = 'http://localhost:3000/auth/kakao/callback';
+    const REDIRECT_URI = 'http://3.217.20.163:8080/auth/kakao/callback';
     const dispatch = useDispatch();
     const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     const loginHandler = () => {
@@ -21,7 +21,7 @@ const Login = () => {
     const navigate = useNavigate();
     const loginUser = async () => {
         try {
-            const response = await axios.post('http://3.217.20.163:3000/api/user/login', {
+            const response = await axios.post('http://3.217.20.163:8080/api/user/login', {
                 userName: username,
                 password: password,
             });
