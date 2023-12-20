@@ -34,17 +34,31 @@ const Write = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        const reviewData = {
-            score: score.toString(),
-            reviewContents,
-            reviewPic
-        };
+        const formData = new FormData();
 
-        // Store the review data in local storage
-        localStorage.setItem('reviewData', JSON.stringify(reviewData));
+        // Append ReviewDto as an object
+        formData.append('ReviewDto', JSON.stringify({ score: score.toString(), reviewContents }));
 
-        alert('Review saved locally!');
-        navigate('/Reviewcomplete');
+        // Convert reviewPic to a binary string
+        if (reviewPic) {
+            formData.append('reviewPic', reviewPic);
+        } else {
+            alert('Please upload a review picture!');
+            return;
+        }
+
+        try {
+            await axios.post(`http://3.217.20.163:8080/api/restaurants/review/${id}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+            });
+            alert('Review sent successfully!');
+            navigate('/Reviewcomplete');
+        } catch (error) {
+            console.error(error);
+            alert('Failed to send review!');
+        }
     };
 
     return (
