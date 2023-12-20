@@ -21,7 +21,7 @@ const Login = () => {
     const navigate = useNavigate();
     const loginUser = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/api/user/login', {
+            const response = await axios.post('http://3.217.20.163:3000/api/user/login', {
                 userName: username,
                 password: password,
             });
